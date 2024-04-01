@@ -1,0 +1,332 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    color: #fff;
+    background: #09001d;
+    overflow: hidden;
+}
+
+.header {
+    padding: 20px 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    /* background-color: seagreen; */
+}
+
+.logo {
+    font-size: 32px;
+    text-decoration: none;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+    filter: drop-shadow(0 3px 3px #edc00c);
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #fff;
+    margin-left: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #edc00c;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 200%;
+}
+
+.quiz-section {
+    width: 100%;
+    background: #09001d;
+    position: relative;
+    left: -50%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* left: 0; */
+    transition: .5s ease-in-out;
+    transition-delay: .25s;
+}
+
+.quiz-section.active {
+    left: 0;
+
+}
+
+.quiz-box {
+    position: relative;
+    width: 500px;
+    border: 2px solid #edc00c;
+    border-radius: 6px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    transform: scale(.9);
+    opacity: 0;
+    pointer-events: none;
+}
+.quiz-box.active{
+    pointer-events: auto;
+    transition: .3s ease-in-out;
+    opacity: 1;
+    transform: scale(1);
+    transition-delay:1s ;
+}
+.main {
+    background: url(./images/bg2.jpg);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: auto;
+    transition: .2s ease;
+}
+
+.quiz-box h1 {
+    background: linear-gradient(55deg, transparent, #edc00c, transparent);
+    text-align: center;
+    font-size: 32px;
+    border-radius: 6px;
+}
+
+.quiz-box .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #edc00c;
+    margin-bottom: 15px;
+}
+
+.quiz-header span {
+    font-weight: 600;
+    font-size: 18px;
+
+}
+
+.header-score {
+    background: #edc00c;
+    border-radius: 3px;
+    padding: 7px;
+}
+
+.question-text {
+    font-size: 28px;
+    font-weight: 600;
+
+}
+
+.option-list .option {
+    width: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 17px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: .3s;
+}
+.option-list .option.correct{
+    background: #09001d;
+    color: #00a63d;
+    border-color: #00a63d;
+}
+.option-list .option.Incorrect{
+    background: #09001d;
+    color: #a60045;
+    border-color: #a60045;
+}
+.option-list .option.disabled{
+    pointer-events: none;
+}
+.option-list .option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border: rgba(255, 255, 255, 0.1);
+}
+
+.quiz-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2px solid #edc00c;
+    padding-top: 20px;
+    margin-top: 20px;
+
+}
+
+.quiz-footer .question-total {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.quiz-footer .next-btn {
+    width: 100px;
+    height: 45px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.3);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    /* pointer-events: none; */
+    font-weight: 600;
+    transition: .3s;
+}
+.quiz-footer .next-btn:hover {
+    background: #ba9602;
+    border-color: #edc00c;
+}
+.main.active {
+    filter: blur(15px);
+    pointer-events: none
+}
+
+/* ---------------home---------------- */
+
+.home {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: -50%;
+
+}
+
+.home-content {
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.home-content h1 {
+    font-size: 68px;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
+
+.home-content p {
+    font-size: 16px;
+    text-align: center;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+}
+
+.home-content .start-btn {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: #edc00c;
+    box-shadow: 0 0 10px #edc00c;
+    border: 2px solid #edc00c;
+    height: 55px;
+    width: 190px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.home-content .start-btn:hover {
+    box-shadow: none;
+    background: #09001d;
+}
+
+/* -------------popup-info------------------- */
+.popup-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.9);
+    width: 500px;
+    background: #fff;
+    padding: 10px 25px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s ease;
+}
+
+.popup-info.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+
+}
+
+.popup-info h2 {
+    font-size: 50px;
+    color: #edc00c;
+}
+
+.popup-info .info {
+    margin: 4px 0;
+    display: inline-block;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.popup-info .btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid grey;
+    margin-top: 10px;
+    padding: 15px 0 7px;
+}
+
+.popup-info .btn-group .info-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 45px;
+    background: #edc00c;
+    border: 2px solid #edc00c;
+    outline: none;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn-group .info-btn:nth-child(1) {
+    background: transparent;
+    color: #edc00c;
+}
+
+.btn-group .info-btn:nth-child(1):hover {
+    background: #edc00c;
+    color: #fff;
+}
+
+.btn-group .info-btn:nth-child(2):hover {
+    background: #ba9602;
+}
