@@ -22,11 +22,13 @@ continueBtn.onclick = function () {
 
     showquestions(0);
     questioncounter(1);
+    headerscore();
 };
 
 
 let questionCount = 0;
 let questionNumb = 1;
+let userScore = 0;
 
 let nextBtn = document.querySelector('.next-btn');
 
@@ -34,9 +36,11 @@ nextBtn.onclick = function () {
     if (questionCount < questions.length - 1) {
         questionCount++;
         showquestions(questionCount);
-
+        
         questionNumb++;
         questioncounter(questionNumb);
+        nextBtn.classList.remove('active');
+        // headerscore();
 
 
     } else {
@@ -60,24 +64,33 @@ function showquestions(index) {
     optionList.innerHTML = optionTag;
 
     let option = document.querySelectorAll('.option');
-    for (var i = 0 ; i < option.length ; i++){
+    for (var i = 0; i < option.length; i++) {
 
-        option[i].setAttribute('onclick','optionselected(this)');
+        option[i].setAttribute('onclick', 'optionselected(this)');
     }
 };
-function optionselected(answer){
+function optionselected(answer) {
     let userAnswer = answer.textContent;
     let correctAns = questions[questionCount].answer;
     let allOption = optionList.children.length;
-    if(userAnswer == correctAns){
+    if (userAnswer == correctAns) {
         answer.classList.add('correct')
-        
-    }else{
+        userScore += 1;
+        headerscore();
+
+    } else {
         answer.classList.add('Incorrect')
+        for (var i = 0; i < allOption; i++) {
+            if (optionList.children[i].textContent == correctAns) {
+                optionList.children[i].setAttribute('class', 'option correct');
+
+            }
+        }
     }
-    for (var i = 0 ; i < allOption ; i++){
+    for (var i = 0; i < allOption; i++) {
         optionList.children[i].classList.add('disabled');
     }
+    nextBtn.classList.add('active');
 }
 
 function questioncounter(index) {
@@ -85,4 +98,7 @@ function questioncounter(index) {
     questionTotal.textContent = `${index} of ${questions.length} Questions`;
 }
 
-
+function headerscore() {
+    let headerScoreText = document.querySelector('.header-score');
+    headerScoreText.textContent = `Score : ${userScore} / ${questions.length}`;
+}

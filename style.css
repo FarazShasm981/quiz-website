@@ -189,19 +189,25 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
-    /* pointer-events: none; */
+    pointer-events: none;
     font-weight: 600;
     transition: .3s;
 }
-.quiz-footer .next-btn:hover {
-    background: #ba9602;
+.quiz-footer .next-btn.active{
+    pointer-events: auto;
+    background: #edc00c;
     border-color: #edc00c;
+    color: #fff;
 }
+
 .main.active {
     filter: blur(15px);
     pointer-events: none
 }
-
+.quiz-footer .next-btn.active:hover {
+    background: #ba9602;
+    border-color: #edc00c;
+}
 /* ---------------home---------------- */
 
 .home {
