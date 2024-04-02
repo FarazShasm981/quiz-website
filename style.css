@@ -57,12 +57,12 @@ body {
     width: 100%;
     background: #09001d;
     position: relative;
-    /* left: -50%; */
+    left: -50%;
     z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
-    left: 0;
+    /* left: 0; */
     transition: .5s ease-in-out;
     transition-delay: .25s;
 }
@@ -84,6 +84,8 @@ body {
     transform: scale(.9);
     opacity: 0;
     pointer-events: none;
+    transition: .3s ease;
+    transition-delay: 0s;
 }
 
 .quiz-box.active {
@@ -221,7 +223,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(.9);
     width: 500px;
     border: 2px solid #edc00c;
     background: transparent;
@@ -230,18 +232,31 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
 }
-.result-box h2{
+
+.result-box.active {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    
+}
+
+.result-box h2 {
     font-size: 52px;
 }
-.percentage-container{
+
+.percentage-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px 0 40px;
     width: 300px;
 }
-.circular-progress{
+
+.circular-progress {
     position: relative;
     width: 250px;
     height: 250px;
@@ -250,18 +265,31 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: conic-gradient(#edc00c 3.6deg,rgba(255,255,255,.1) 0deg);
+    background: conic-gradient(#edc00c 3.6deg, rgba(255, 255, 255, .1) 0deg);
 }
-.progress-value{
+
+.circular-progress::before {
+    content: '';
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background: #09001d;
+}
+
+.progress-value {
+    position: relative;
     font-size: 45px;
     font-weight: 600;
 }
-.score-text{
+
+.score-text {
     font-size: 26px;
     font-weight: 600;
     margin-top: 20px;
 }
-.buttons button{
+
+.buttons button {
     width: 130px;
     height: 45px;
     outline: none;
@@ -273,7 +301,28 @@ body {
     color: #fff;
     margin: 0 20px 20px;
     cursor: pointer;
+    transition: .5s;
 }
+
+.result-box .buttons {
+    display: flex;
+}
+
+.buttons button:nth-child(2) {
+    background: transparent;
+    color: #edc00c;
+}
+
+.buttons button:nth-child(1):hover {
+    background: #ba9602;
+    border-color: #ba9602;
+}
+
+.buttons button:nth-child(2):hover {
+    background: #edc00c;
+    color: #fff;
+}
+
 /* ---------------home---------------- */
 
 .home {
